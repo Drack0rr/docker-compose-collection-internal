@@ -32,6 +32,8 @@ services:
       SIGNUPS_ALLOWED: '$SIGNUPS_ALLOWED'   # set to false to disable signups
       TZ: '$TIME_ZONE'
       ADMIN_TOKEN: '$ADMIN_TOKEN'
+    ports:
+      - 3012:3012
     healthcheck:
       test: curl --fail http://localhost:80 || exit 1
       interval: 1m
@@ -43,13 +45,10 @@ services:
       - "autoupdate=true" # https://github.com/Drack0rr/container-updater
       - "autoupdate.webhook="
       - "traefik.enable=true"
-      - "traefik.http.routers.$SERVICE-ui.entrypoints=https"
-      - "traefik.http.routers.$SERVICE-ui.rule=Host(`$URL`)"
-      - "traefik.http.routers.$SERVICE-ui.tls=true"
-      - "traefik.http.services.$SERVICE-ui.loadbalancer.server.port=80"
-      - traefik.http.routers.$SERVICE-websocket.rule=Host(`$URL`) && Path(`/notifications/hub`)
-      - traefik.http.routers.$SERVICE-websocket.service=$SERVICE-websocket
-      - traefik.http.services.$SERVICE-websocket.loadbalancer.server.port=3012
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
       - "traefik.docker.network=$NETWORK"
 
 networks:
