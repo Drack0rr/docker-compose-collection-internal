@@ -48,6 +48,65 @@
                     "default": "proxy"
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Vaultwarden",
+            "name": "Vaultwarden",
+            "description": "Password manager",
+            "note": "Website: <a href='https://github.com/dani-garcia/vaultwarden' target='_blank' rel='noopener'>Github.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://img.papamica.com/logo/bitwarden.png",
+            "repository": {
+                "stackfile": "composes-files/vaultwarden.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "vaultwarden"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "SIGNUPS_ALLOWED",
+                    "label": "Autorize signup ? ",
+                    "description": "True or False",
+                    "default": "True"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "ADMIN_TOKEN",
+                    "label": "Admin token",
+                    "description": "For manage with url/admin"
+                }
+            ]
         }
     ]
 }

@@ -31,11 +31,12 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_1-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_2-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
 | ✅ | <img src="https://img.papamica.com/logo/dashy.png" alt="dashy" width="20"/> [dashy](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/dashy.yml) | [Dashy.to](https://dashy.to/) | 2022-11-28 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://img.papamica.com/logo/bitwarden.png" alt="vaultwarden" width="20"/> [vaultwarden](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/vaultwarden.yml) | [Github.com](https://github.com/dani-garcia/vaultwarden) | 2022-05-10 |  Axel ROTTHIER "Drack0rr" |
 
 ## List of services to do:
 <img src="https://img.shields.io/badge/To_do:_0-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
