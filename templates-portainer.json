@@ -28,12 +28,18 @@
                     "name": "DATA_LOCATION",
                     "label": "Data localization ",
                     "description": "Example: /apps/service",
-                    "default": "/_data/apps"
+                    "default": "/apps"
                 },
                 {
                     "name": "URL",
                     "label": "Service URL",
                     "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "PORT",
+                    "label": "Your access port web ",
+                    "description": "Example: 80",
+                    "default": "80"
                 },
                 {
                     "name": "NETWORK",
