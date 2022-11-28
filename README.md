@@ -100,12 +100,12 @@ If you want to add a new docker-compose, you must use the following template:
 #& logo: https://progsoft.net/images/hastebin-icon-b45e3f5695d3f577b2630648bd00584195822e3d.png
 
 #% SERVICE: Name of the service (No spaces or points) [hastebin]
-#% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]
-#% URL: Service URL (Example: service.drackorr.fr or service.com)
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.drackorr.net or service.com)
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 
 # Work with Portainer
-version: "2"
+version: "3.8"
 services:
   # Hastebin : https://hastebin.com/about.md
   hastebin:
@@ -124,12 +124,12 @@ services:
     networks:
       - default
     labels:
-      - "autoupdate=monitor" # https://github.com/PAPAMICA/container-updater
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
       - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
       - "traefik.http.routers.$SERVICE.tls=true"
-      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
       - "traefik.docker.network=$NETWORK"
 
 networks:
