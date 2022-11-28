@@ -1,0 +1,51 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2022-11-28
+
+
+#& type: 3
+#& title: Dashy
+#& description: Personnal dashboard
+#& note: Website: <a href='https://dashy.to/' target='_blank' rel='noopener'>Dashy.to</a>
+#& categories: SelfHosted, Drackorr
+#& platform: linux
+#& logo: https://img.papamica.com/logo/dashy.png
+
+#% SERVICE: Name of the service (No spaces or points) [dashy]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+
+# Work with Portainer
+version: "3.8"
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: $SERVICE
+    volumes:
+      - $DATA_LOCATION/$SERVICE/conf.yml:/app/public/conf.yml
+    environment:
+ #     - NODE_ENV=production
+      - UID=1000
+      - GID=1000
+    restart: unless-stopped
+    healthcheck:
+      test: ['CMD', 'node', '/app/services/healthcheck']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/PAPAMICA/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+
+networks:
+  default:
+    external:
+      name: $NETWORK
