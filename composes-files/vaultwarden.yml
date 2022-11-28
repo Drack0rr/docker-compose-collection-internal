@@ -12,7 +12,6 @@
 #% SERVICE: Name of the service (No spaces or points) [vaultwarden]
 #% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
 #% URL: Service URL (Example: service.rotthier.net or service.com)
-#% PORT: Your access port web (Example: 80) [80]
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 #% SIGNUPS_ALLOWED: Autorize signup ? (True or False) [True]
 #% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
@@ -38,19 +37,21 @@ services:
       interval: 1m
       timeout: 30s
       retries: 3
-    ports:
-      - 3012:3012
     networks:
       - default
     labels:
       - "autoupdate=true" # https://github.com/Drack0rr/container-updater
       - "autoupdate.webhook="      
       - "traefik.enable=true"
-      - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
-      - "traefik.http.routers.$SERVICE.tls=true"
-      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.routers.$SERVICE-ui.entrypoints=https"
+      - "traefik.http.routers.$SERVICE-ui.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE-ui.tls=true"
+      - "traefik.http.services.$SERVICE-ui.loadbalancer.server.port=80"
+      - traefik.http.routers.$SERVICE-websocket.rule=Host(`$URL`) && Path(`/notifications/hub`)
+      - traefik.http.routers.$SERVICE-websocket.service=$SERVICE-websocket
+      - traefik.http.services.$SERVICE-websocket.loadbalancer.server.port=3012
       - "traefik.docker.network=$NETWORK"
+
 networks:
   default:
     external:
