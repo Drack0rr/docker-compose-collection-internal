@@ -101,6 +101,7 @@ If you want to add a new docker-compose, you must use the following template:
 #% SERVICE: Name of the service (No spaces or points) [hastebin]
 #% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
 #% URL: Service URL (Example: service.drackorr.net or service.com)
+#% PORT: Your access port web (Example: 80) [7777]
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 
 # Work with Portainer
@@ -128,7 +129,7 @@ services:
       - "traefik.http.routers.$SERVICE.entrypoints=https"
       - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
       - "traefik.http.routers.$SERVICE.tls=true"
-      - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=$PORT"
       - "traefik.docker.network=$NETWORK"
 
 networks:

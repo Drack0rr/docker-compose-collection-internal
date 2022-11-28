@@ -11,8 +11,9 @@
 #& logo: https://img.papamica.com/logo/dashy.png
 
 #% SERVICE: Name of the service (No spaces or points) [dashy]
-#% DATA_LOCATION: Data localization (Example: /apps/service) [/_data/apps]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
 #% URL: Service URL (Example: service.rotthier.net or service.com)
+#% PORT: Your access port web (Example: 80) [80]
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 
 # Work with Portainer
@@ -42,7 +43,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
       - "traefik.http.routers.$SERVICE.tls=true"
-      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=$PORT"
       - "traefik.docker.network=$NETWORK"
 
 networks:
