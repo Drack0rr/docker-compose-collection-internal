@@ -38,7 +38,7 @@ services:
     networks:
       - default
     labels:
-      - "autoupdate=true" # https://github.com/PAPAMICA/container-updater
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
       - "autoupdate.webhook="
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
