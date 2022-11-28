@@ -41,7 +41,7 @@ services:
       - default
     labels:
       - "autoupdate=true" # https://github.com/Drack0rr/container-updater
-      - "autoupdate.webhook="      
+      - "autoupdate.webhook="
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE-ui.entrypoints=https"
       - "traefik.http.routers.$SERVICE-ui.rule=Host(`$URL`)"
