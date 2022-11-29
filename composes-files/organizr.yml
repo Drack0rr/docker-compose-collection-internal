@@ -1,0 +1,50 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2022-11-29
+
+#& type: 3
+#& title: Organizr
+#& description: Dashboard for your media server.
+#& note: Website: <a href='https://organizr.app/' target='_blank' rel='noopener'>organizr.app</a>
+#& categories: SelfHosted, Mediacenter, Drack0rr
+#& platform: linux
+#& logo: https://img.papamica.com/logo/organizr.png
+
+#% SERVICE: Name of the service (No spaces or points) [organizr]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.dracorr.fr or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TZ: Time zone (Exemple: Europe/Paris) [Europe/Paris]
+
+
+# Work with Portainer
+services:
+  organizr:
+    image: organizr/organizr:latest
+    container_name: $SERVICE
+    restart: always
+    volumes:
+      - $DATA_LOCATION/$SERVICE/config:/config
+    environment:
+      - TZ=$TZ
+      - PUID=1000
+      - PGID=1000
+    healthcheck:
+      test: curl --connect-timeout 15 --max-time 100 --silent --show-error --fail "http://localhost:80" > /dev/null
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: $NETWORK
