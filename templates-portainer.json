@@ -51,6 +51,55 @@
         },
         {
             "type": 3,
+            "title": "Organizr",
+            "name": "Organizr",
+            "description": "Dashboard for your media server.",
+            "note": "Website: <a href='https://organizr.app/' target='_blank' rel='noopener'>organizr.app</a>",
+            "categories": [
+                "SelfHosted",
+                "Mediacenter",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://img.papamica.com/logo/organizr.png",
+            "repository": {
+                "stackfile": "composes-files/organizr.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "organizr"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.dracorr.fr or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TZ",
+                    "label": "Time zone ",
+                    "description": "Exemple: Europe/Paris",
+                    "default": "Europe/Paris"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Vaultwarden",
             "name": "Vaultwarden",
             "description": "Password manager",
