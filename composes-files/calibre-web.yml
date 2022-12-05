@@ -14,23 +14,29 @@
 #% URL: Service URL (Example: service.rotthier.net or service.com)
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 #% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% PASSWORD: Admin Password
 
 version: "3.8"
 services:
   # Calibre-Web : https://calibre-ebook.com/
+  # Setup with New Calibre Database : https://fictionbecomesfact.com/calibre-web-container
   calibre-web:
     image: linuxserver/calibre-web:latest
     container_name: $SERVICE
     restart: unless-stopped
     environment:
-      #- PUID=1000
-      #- PGID=1000
       - TZ=$TIME_ZONE
       - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
+      - PASSWORD=$PASSWORD
     volumes:
       - $DATA_LOCATION/$SERVICE/config:/config
       - $DATA_LOCATION/$SERVICE/library:/books
+    healthcheck:
+      test: curl --fail http://localhost:8083 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     networks:
       - default
     labels:
