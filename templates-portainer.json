@@ -46,11 +46,6 @@
                     "label": "Time zone ",
                     "description": "Example : Europe/Paris",
                     "default": "Europe/Paris"
-                },
-                {
-                    "name": "ADMIN_TOKEN",
-                    "label": "Admin token",
-                    "description": "For manage with url/admin"
                 }
             ]
         },
