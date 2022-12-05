@@ -14,13 +14,12 @@
 #% URL: Service URL (Example: service.rotthier.net or service.com)
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 #% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
-#% ADMIN_TOKEN: Admin token (For manage with url/admin)
 
 version: "3.8"
 services:
   # Calibre-Web : https://calibre-ebook.com/
   calibre-web:
-    image: linuxserver/calibre-webw:latest
+    image: linuxserver/calibre-web:latest
     container_name: $SERVICE
     restart: unless-stopped
     environment:
