@@ -14,7 +14,6 @@
 #% URL: Service URL (Example: service.rotthier.net or service.com)
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 #% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
-#% PASSWORD: Admin Password
 
 version: "3.8"
 services:
@@ -28,7 +27,6 @@ services:
       - TZ=$TIME_ZONE
       - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
       - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
-      - PASSWORD=$PASSWORD
     volumes:
       - $DATA_LOCATION/$SERVICE/config:/config
       - $DATA_LOCATION/$SERVICE/library:/books
