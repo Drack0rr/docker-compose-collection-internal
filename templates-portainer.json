@@ -46,10 +46,6 @@
                     "label": "Time zone ",
                     "description": "Example : Europe/Paris",
                     "default": "Europe/Paris"
-                },
-                {
-                    "name": "PASSWORD",
-                    "label": "Admin Password"
                 }
             ]
         },
