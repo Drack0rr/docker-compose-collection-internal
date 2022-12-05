@@ -1,0 +1,50 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2022-12-05
+
+#& type: 3
+#& title: Calibre-Web
+#& description: Web library
+#& note: Website: <a href='https://github.com/janeczku/calibre-web' target='_blank' rel='noopener'>Github.com</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://developer.asustor.com/uploadIcons/0020_999_1573465183_calibre-web_256.png
+
+#% SERVICE: Name of the service (No spaces or points) [calibre-web]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% ADMIN_TOKEN: Admin token (For manage with url/admin)
+
+version: "3.8"
+services:
+  # Calibre-Web : https://calibre-ebook.com/
+  calibre-web:
+    image: linuxserver/calibre-webw:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      #- PUID=1000
+      #- PGID=1000
+      - TZ=$TIME_ZONE
+      - DOCKER_MODS=linuxserver/mods:universal-calibre #optional
+      - OAUTHLIB_RELAX_TOKEN_SCOPE=1 #optional
+    volumes:
+      - $DATA_LOCATION/$SERVICE/config:/config
+      - $DATA_LOCATION/$SERVICE/library:/books
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8083"
+      - "traefik.docker.network=$NETWORK"
+
+networks:
+  default:
+    external:
+      name: $NETWORK
