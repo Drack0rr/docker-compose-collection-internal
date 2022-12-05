@@ -27,7 +27,7 @@ services:
     volumes:
       - $DATA_LOCATION/$SERVICE/config:/kavita/config
       - $DATA_LOCATION/$SERVICE/books:/books
-      - $DATA_LOCATION/$SERVICE/manga:/manga 
+      - $DATA_LOCATION/$SERVICE/manga:/manga
       - $DATA_LOCATION/$SERVICE/comics:/comics
     healthcheck:
       test: curl --fail http://localhost:5000 || exit 1
