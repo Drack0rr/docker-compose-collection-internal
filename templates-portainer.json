@@ -118,7 +118,7 @@
                     "name": "SERVICE",
                     "label": "Name of the service ",
                     "description": "No spaces or points",
-                    "default": "calibre-web"
+                    "default": "glpi"
                 },
                 {
                     "name": "DB_USER",
