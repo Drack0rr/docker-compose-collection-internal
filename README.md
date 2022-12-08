@@ -31,12 +31,13 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_5-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_6-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
 | ✅ | <img src="https://developer.asustor.com/uploadIcons/0020_999_1573465183_calibre-web_256.png" alt="calibre-web" width="20"/> [calibre-web](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/calibre-web.yml) | [Github.com](https://github.com/janeczku/calibre-web) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/dashy.png" alt="dashy" width="20"/> [dashy](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/dashy.yml) | [Dashy.to](https://dashy.to/) | 2022-11-28 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://www.linuxtricks.fr/upload/logo-glpi.png" alt="glpi" width="20"/> [glpi](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/glpi.yml) | [glpi-project.org](https://glpi-project.org/fr/) | 2022-12-08 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://www.kavitareader.com/img/logo.png" alt="kavita" width="20"/> [kavita](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/kavita.yml) | [Github.com](https://github.com/Kareadita/Kavita) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/organizr.png" alt="organizr" width="20"/> [organizr](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/organizr.yml) | [organizr.app](https://organizr.app/) | 2022-11-29 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/bitwarden.png" alt="vaultwarden" width="20"/> [vaultwarden](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/vaultwarden.yml) | [Github.com](https://github.com/dani-garcia/vaultwarden) | 2022-05-10 |  Axel ROTTHIER "Drack0rr" |
