@@ -21,9 +21,9 @@
 version: "3.8"
 
 services:
-  glpi-db:
+  mariadb:
     image: mariadb:10.9
-    container_name: $SERVICE-db
+    container_name: mariadb
     restart: always
     volumes:
       - $DATA_LOCATION/$SERVICE/db:/var/lib/mysql
@@ -48,7 +48,12 @@ services:
     environment:
       - TIMEZONE=$TIME_ZONE
     depends_on:
-      - glpi-db
+      - mariadb
+    healthcheck:
+      test: curl --fail http://localhost || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     networks:
       - default
     labels:
