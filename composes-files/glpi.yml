@@ -9,7 +9,7 @@
 #& platform: linux
 #& logo: https://www.linuxtricks.fr/upload/logo-glpi.png
 
-#% SERVICE: Name of the service (No spaces or points) [calibre-web]
+#% SERVICE: Name of the service (No spaces or points) [glpi]
 #% DB_USER: Database user (No spaces or points) [glpi_user]
 #% DB_PASSWORD: Database user password
 #% DB_ROOT_PASSWORD: Database root password
@@ -44,8 +44,6 @@ services:
     container_name : $SERVICE
     restart: always
     volumes:
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
       - $DATA_LOCATION/$SERVICE/data:/var/www/html/glpi
     environment:
       - TIMEZONE=$TIME_ZONE
