@@ -47,7 +47,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 | Status | Service |
 |:--:|--|
-| 🚸 | valut |
+| 🚸 | vault |
 
 </div>
 
