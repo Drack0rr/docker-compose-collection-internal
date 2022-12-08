@@ -43,10 +43,11 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://img.papamica.com/logo/bitwarden.png" alt="vaultwarden" width="20"/> [vaultwarden](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/vaultwarden.yml) | [Github.com](https://github.com/dani-garcia/vaultwarden) | 2022-05-10 |  Axel ROTTHIER "Drack0rr" |
 
 ## List of services to do:
-<img src="https://img.shields.io/badge/To_do:_0-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
+<img src="https://img.shields.io/badge/To_do:_1-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
 
 | Status | Service |
 |:--:|--|
+| 🚸 | valut |
 
 </div>
 
