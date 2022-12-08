@@ -32,6 +32,10 @@ services:
       - MARIADB_DATABASE=glpi_db
       - MARIADB_USER=$DB_USER
       - MARIADB_PASSWORD=$DB_PASSWORD
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
     networks:
       - default
     labels:
