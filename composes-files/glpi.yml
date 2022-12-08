@@ -21,7 +21,7 @@
 version: "3.8"
 
 services:
-  glpi_db:
+  glpi-db:
     image: mariadb:10.9
     container_name: $SERVICE-db
     restart: always
@@ -48,7 +48,7 @@ services:
     environment:
       - TIMEZONE=$TIME_ZONE
     depends_on:
-      - glpi_db
+      - glpi-db
     networks:
       - default
     labels:
