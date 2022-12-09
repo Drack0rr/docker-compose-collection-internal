@@ -374,7 +374,7 @@
             "platform": "linux",
             "logo": "https://yacht.sh/img/logo-light.svg",
             "repository": {
-                "stackfile": "composes-files/yatch.yml",
+                "stackfile": "composes-files/yatcht.yml",
                 "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
             },
             "env": [
