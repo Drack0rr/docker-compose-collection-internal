@@ -362,8 +362,8 @@
         },
         {
             "type": 3,
-            "title": "Yatch",
-            "name": "Yatch",
+            "title": "Yacht",
+            "name": "Yacht",
             "description": "web interface for managing docker containers.",
             "note": "Website: <a href='https://yacht.sh/' target='_blank' rel='noopener'>Yacht.sh</a>",
             "categories": [
