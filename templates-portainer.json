@@ -359,6 +359,49 @@
                     "description": "For manage with url/admin"
                 }
             ]
+        },
+        {
+            "type": 3,
+            "title": "Yatch",
+            "name": "Yatch",
+            "description": "web interface for managing docker containers.",
+            "note": "Website: <a href='https://yacht.sh/' target='_blank' rel='noopener'>Yacht.sh</a>",
+            "categories": [
+                "SelfHosted",
+                "Orchestrator",
+                "Drackorr"
+            ],
+            "platform": "linux",
+            "logo": "https://yacht.sh/img/logo-light.svg",
+            "repository": {
+                "stackfile": "composes-files/yatch.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "yacht"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                }
+            ]
         }
     ]
 }

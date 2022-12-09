@@ -31,7 +31,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_7-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_8-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
@@ -42,6 +42,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://img.papamica.com/logo/organizr.png" alt="organizr" width="20"/> [organizr](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/organizr.yml) | [organizr.app](https://organizr.app/) | 2022-11-29 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://user-images.githubusercontent.com/58886915/166198400-c2134044-1198-4647-a8b6-da9c4a204c68.svg" alt="pingvin-share" width="20"/> [pingvin-share](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/pingvin-share.yml) | [Github.com](https://github.com/stonith404/pingvin-share) | 2022-12-08 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/bitwarden.png" alt="vaultwarden" width="20"/> [vaultwarden](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/vaultwarden.yml) | [Github.com](https://github.com/dani-garcia/vaultwarden) | 2022-05-10 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://yacht.sh/img/logo-light.svg" alt="yatch" width="20"/> [yatch](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/yatch.yml) | [Yacht.sh](https://yacht.sh/) | 2022-12-09 |  Axel ROTTHIER "Drack0rr" |
 
 ## List of services to do:
 <img src="https://img.shields.io/badge/To_do:_1-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
