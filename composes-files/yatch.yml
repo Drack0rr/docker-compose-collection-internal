@@ -3,7 +3,7 @@
 
 
 #& type: 3
-#& title: Yatch
+#& title: Yacht
 #& description: web interface for managing docker containers.
 #& note: Website: <a href='https://yacht.sh/' target='_blank' rel='noopener'>Yacht.sh</a>
 #& categories: SelfHosted, Orchestrator, Drackorr
