@@ -16,10 +16,10 @@
 #% NETWORK: Your Traefik network (Example: proxy) [proxy]
 
 # Work with Portainer
-version: "2"
+version: "3.8"
 services:
   grafana:
-    image: grafana/grafana:latest
+    image: grafana/grafana-oss:latest
     restart: always
     container_name: $SERVICE
     volumes:
@@ -27,8 +27,8 @@ services:
       - $DATA_LOCATION/$SERVICE/data:/var/lib/grafana
     environment:
       - GF_PANELS_DISABLE_SANITIZE_HTML=true
-      - GF_SERVER_DOMAIN=$URL
-      - GF_SERVER_ROOT_URL=https://$URL
+      #- GF_SERVER_DOMAIN=$URL
+      #- GF_SERVER_ROOT_URL=https://$URL
       - GF_INSTALL_PLUGINS=$PLUGINS
       - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=$PLUGINS
     healthcheck:
@@ -45,7 +45,7 @@ services:
       - "traefik.http.routers.$SERVICE.entrypoints=https"
       - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
       - "traefik.http.routers.$SERVICE.tls=true"
-      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=3000"
       - "traefik.docker.network=$NETWORK"
 
 networks:
