@@ -1,0 +1,49 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2022-12-30
+
+
+#& type: 3
+#& title: EmulatorJS
+#& description: Self-hosted Javascript emulation for various system gaming
+#& note: Website: <a href='https://emulatorjs.org/' target='_blank' rel='noopener'>Emulatorjs.org</a>
+#& categories: SelfHosted, Gaming, Drackorr
+#& platform: linux
+#& logo: https://emulatorjs.org/media/logo.png
+
+#% SERVICE: Name of the service (No spaces or points) [emulatorjs]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% PORT: Your access port web (Example: 80) [80]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+
+# Work with Portainer
+version: "3.8"
+services:
+  emulatorjs:
+    image: linuxserver/emulatorjs:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=$TIME_ZONE
+      - SUBFOLDER=/ #optional
+    volumes:
+      - $DATA_LOCATION/$SERVICE/config:/config
+      - $DATA_LOCATION/$SERVICE/data:/data
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+
+networks:
+  default:
+    external:
+      name: $NETWORK
