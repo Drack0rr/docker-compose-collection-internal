@@ -47,11 +47,12 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://yacht.sh/img/logo-light.svg" alt="yatcht" width="20"/> [yatcht](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/yatcht.yml) | [Yacht.sh](https://yacht.sh/) | 2022-12-09 |  Axel ROTTHIER "Drack0rr" |
 
 ## List of services to do:
-<img src="https://img.shields.io/badge/To_do:_2-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
+<img src="https://img.shields.io/badge/To_do:_3-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
 
 | Status | Service |
 |:--:|--|
 | 🚸 | anonfiles |
+| 🚸 | plausible |
 | 🚸 | vault |
 
 </div>
