@@ -99,6 +99,61 @@
         },
         {
             "type": 3,
+            "title": "EmulatorJS",
+            "name": "EmulatorJS",
+            "description": "Self-hosted Javascript emulation for various system gaming",
+            "note": "Website: <a href='https://emulatorjs.org/' target='_blank' rel='noopener'>Emulatorjs.org</a>",
+            "categories": [
+                "SelfHosted",
+                "Gaming",
+                "Drackorr"
+            ],
+            "platform": "linux",
+            "logo": "https://emulatorjs.org/media/logo.png",
+            "repository": {
+                "stackfile": "composes-files/emulatorjs.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "emulatorjs"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "PORT",
+                    "label": "Your access port web ",
+                    "description": "Example: 80",
+                    "default": "80"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Glpi",
             "name": "Glpi",
             "description": "IT Management",

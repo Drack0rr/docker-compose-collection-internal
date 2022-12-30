@@ -31,12 +31,13 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_9-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_10-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
 | ✅ | <img src="https://developer.asustor.com/uploadIcons/0020_999_1573465183_calibre-web_256.png" alt="calibre-web" width="20"/> [calibre-web](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/calibre-web.yml) | [Github.com](https://github.com/janeczku/calibre-web) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/dashy.png" alt="dashy" width="20"/> [dashy](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/dashy.yml) | [Dashy.to](https://dashy.to/) | 2022-11-28 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://emulatorjs.org/media/logo.png" alt="emulatorjs" width="20"/> [emulatorjs](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/emulatorjs.yml) | [Emulatorjs.org](https://emulatorjs.org/) | 2022-12-30 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://www.linuxtricks.fr/upload/logo-glpi.png" alt="glpi" width="20"/> [glpi](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/glpi.yml) | [glpi-project.org](https://glpi-project.org/fr/) | 2022-12-08 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/grafana.png" alt="grafana" width="20"/> [grafana](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/grafana.yml) | [Grafana.com](https://grafana.com/grafana/dashboards/) | 2022-12-26 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://www.kavitareader.com/img/logo.png" alt="kavita" width="20"/> [kavita](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/kavita.yml) | [Github.com](https://github.com/Kareadita/Kavita) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
