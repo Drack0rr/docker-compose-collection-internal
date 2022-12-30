@@ -28,10 +28,15 @@ services:
       - UID=1000
       - GID=1000
       - TZ=$TIME_ZONE
-      - SUBFOLDER=/ #optional
+      #- SUBFOLDER=/ #optional
     volumes:
       - $DATA_LOCATION/$SERVICE/config:/config
       - $DATA_LOCATION/$SERVICE/data:/data
+    healthcheck:
+      test: curl --fail http://localhost:80 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     networks:
       - default
     labels:
