@@ -1,0 +1,57 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-01-03
+
+#& type: 3
+#& title: Anonfiles
+#& description: Secure and anonymous file sharing without a database
+#& note: Website: <a href='https://github.com/Supernova3339/anonupload' target='_blank' rel='noopener'>Github.com</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://github.com/Supernova3339/anonupload/raw/main/favicon.png
+
+#% SERVICE: Name of the service (No spaces or points) [anonfiles]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% ADMIN_EMAIL: Admin email (For admin access)
+#% ADMIN_PASSWORD: Admin password (For admin access)
+#% CONTACT_EMAIL: Contact email (For email contact)
+
+version: '3.9'
+services:
+
+  anonfiles:
+    container_name: $SERVICE
+    image: ghcr.io/supernova3339/anonfiles:latest
+    restart: unless-stopped
+    volumes:
+      - $DATA_LOCATION/$SERVICE/files:/var/www/html/files
+    environment:
+      - TZ=$TIME_ZONE
+      - ADMIN_EMAIL=$ADMIN_EMAIL
+      - ADMIN_PASSWORD=$ADMIN_PASSWORD
+      - APP_FILELIST=jpeg,jpg,gif,png,zip,xls,doc,pdf,mp3,mp4,mpeg,wav,avi,rar,7z,txt
+      - APP_SIZE_VERIFICATION=true
+      - APP_FILE_DESTINATION=files
+      - APP_BASE_URL=https://$URL
+      - APP_MAX_SIZE=1000000000000
+      - APP_MIN_SIZE=0
+      - APP_CONTACT_EMAIL=supergate84@gmail.com
+      - APP_DOWNLOAD_TIME=3
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK
