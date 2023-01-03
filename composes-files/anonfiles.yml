@@ -23,7 +23,7 @@ services:
 
   anonfiles:
     container_name: $SERVICE
-    image: ghcr.io/supernova3339/anonfiles:latest
+    image: ghcr.io/supernova3339/anonfiles:1
     restart: unless-stopped
     volumes:
       - $DATA_LOCATION/$SERVICE/files:/var/www/html/files
