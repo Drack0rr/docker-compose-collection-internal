@@ -31,10 +31,11 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_10-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_11-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
+| ✅ | <img src="https://github.com/Supernova3339/anonupload/raw/main/favicon.png" alt="anonfiles" width="20"/> [anonfiles](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/anonfiles.yml) | [Github.com](https://github.com/Supernova3339/anonupload) | 2023-01-03 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://developer.asustor.com/uploadIcons/0020_999_1573465183_calibre-web_256.png" alt="calibre-web" width="20"/> [calibre-web](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/calibre-web.yml) | [Github.com](https://github.com/janeczku/calibre-web) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/dashy.png" alt="dashy" width="20"/> [dashy](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/dashy.yml) | [Dashy.to](https://dashy.to/) | 2022-11-28 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://emulatorjs.org/media/logo.png" alt="emulatorjs" width="20"/> [emulatorjs](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/emulatorjs.yml) | [Emulatorjs.org](https://emulatorjs.org/) | 2022-12-30 |  Axel ROTTHIER "Drack0rr" |
@@ -47,11 +48,10 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://yacht.sh/img/logo-light.svg" alt="yatcht" width="20"/> [yatcht](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/yatcht.yml) | [Yacht.sh](https://yacht.sh/) | 2022-12-09 |  Axel ROTTHIER "Drack0rr" |
 
 ## List of services to do:
-<img src="https://img.shields.io/badge/To_do:_3-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
+<img src="https://img.shields.io/badge/To_do:_2-%23FF8800.svg?style=for-the-badge&logo=vlcmediaplayer&logoColor=white">
 
 | Status | Service |
 |:--:|--|
-| 🚸 | anonfiles |
 | 🚸 | plausible |
 | 🚸 | vault |
 

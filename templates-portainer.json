@@ -3,6 +3,69 @@
     "templates": [
         {
             "type": 3,
+            "title": "Anonfiles",
+            "name": "Anonfiles",
+            "description": "Secure and anonymous file sharing without a database",
+            "note": "Website: <a href='https://github.com/Supernova3339/anonupload' target='_blank' rel='noopener'>Github.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://github.com/Supernova3339/anonupload/raw/main/favicon.png",
+            "repository": {
+                "stackfile": "composes-files/anonfiles.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "anonfiles"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "ADMIN_EMAIL",
+                    "label": "Admin email",
+                    "description": "For admin access"
+                },
+                {
+                    "name": "ADMIN_PASSWORD",
+                    "label": "Admin password",
+                    "description": "For admin access"
+                },
+                {
+                    "name": "CONTACT_EMAIL",
+                    "label": "Contact email",
+                    "description": "For email contact"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Calibre-Web",
             "name": "Calibre-Web",
             "description": "Web library",
