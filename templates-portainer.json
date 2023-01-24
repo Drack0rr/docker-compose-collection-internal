@@ -329,6 +329,64 @@
         },
         {
             "type": 3,
+            "title": "HomeChart",
+            "name": "HomeChart",
+            "description": "Homechart is a productivity application to manage your household data--budgets, tasks, recipes, and more.",
+            "note": "Website: <a href='https://homechart.app/' target='_blank' rel='noopener'>Homechart.app</a>",
+            "categories": [
+                "SelfHosted",
+                "Drackorr"
+            ],
+            "platform": "linux",
+            "logo": "https://homechart.app/images/homechart.8143d29cfd822a29044c24fdbb24a64dd2e897bdc081a288f7bbf39f02bfe3ba.png",
+            "repository": {
+                "stackfile": "composes-files/homechart.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "homechart"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "DB_USER",
+                    "label": "Database user ",
+                    "description": "No spaces or points",
+                    "default": "homechart_user"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Kavita",
             "name": "Kavita",
             "description": "Web library",
