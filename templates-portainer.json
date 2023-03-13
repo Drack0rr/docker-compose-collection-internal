@@ -382,6 +382,10 @@
                     "label": "Time zone ",
                     "description": "Example : Europe/Paris",
                     "default": "Europe/Paris"
+                },
+                {
+                    "name": "ADMIN_MAIL",
+                    "label": "Admin mail for access"
                 }
             ]
         },
