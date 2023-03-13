@@ -1,0 +1,45 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-03-13
+
+#& type: 3
+#& title: HomeAssisant
+#& description: Open source home automation that puts local control and privacy first.
+#& note: Website: <a href='https://www.home-assistant.io/' target='_blank' rel='noopener'>Home-assistant.io</a>
+#& categories: SelfHosted, Drackorr
+#& platform: linux
+#& logo: https://design.home-assistant.io/images/logo.png
+
+#% SERVICE: Name of the service (No spaces or points) [homeassistant]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+
+# Work with Portainer
+version: "3.8"
+services:
+  homeassistant:
+    image: homeassistant/home-assistant:latest
+    restart: always
+    container_name: $SERVICE
+    environment:
+      - TZ=$TIME_ZONE
+    volumes:
+      - $DATA_LOCATION/$SERVICE/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls=true"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK
