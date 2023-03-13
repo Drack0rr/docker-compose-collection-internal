@@ -16,6 +16,7 @@
 #% DB_USER: Database user (No spaces or points) [homechart_user]
 #% DB_PASSWORD: Database user password
 #% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% ADMIN_MAIL: Admin mail for access
 
 # Work with Portainer
 version: "3.8"
@@ -34,6 +35,7 @@ services:
       - HOMECHART_POSTGRESQL_USERNAME=$DB_USER
       - HOMECHART_APP_BASEURL=$URL
       - HOMECHART_APP_SIGNUPDISABLED=True
+      - HOMECHART_APP_ADMINEMAILADDRESSES=$ADMIN_MAIL
     labels:
       - "autoupdate=true" # https://github.com/Drack0rr/container-updater
       - "autoupdate.webhook="
