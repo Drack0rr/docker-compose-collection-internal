@@ -31,7 +31,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_12-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_13-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
@@ -41,6 +41,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://emulatorjs.org/media/logo.png" alt="emulatorjs" width="20"/> [emulatorjs](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/emulatorjs.yml) | [Emulatorjs.org](https://emulatorjs.org/) | 2022-12-30 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://www.linuxtricks.fr/upload/logo-glpi.png" alt="glpi" width="20"/> [glpi](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/glpi.yml) | [glpi-project.org](https://glpi-project.org/fr/) | 2022-12-08 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/grafana.png" alt="grafana" width="20"/> [grafana](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/grafana.yml) | [Grafana.com](https://grafana.com/grafana/dashboards/) | 2022-12-26 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://design.home-assistant.io/images/logo.png" alt="homeassistant" width="20"/> [homeassistant](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/homeassistant.yml) | [Home-assistant.io](https://www.home-assistant.io/) | 2023-03-13 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://homechart.app/images/homechart.8143d29cfd822a29044c24fdbb24a64dd2e897bdc081a288f7bbf39f02bfe3ba.png" alt="homechart" width="20"/> [homechart](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/homechart.yml) | [Homechart.app](https://homechart.app/) | 2023-01-24 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://www.kavitareader.com/img/logo.png" alt="kavita" width="20"/> [kavita](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/kavita.yml) | [Github.com](https://github.com/Kareadita/Kavita) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/organizr.png" alt="organizr" width="20"/> [organizr](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/organizr.yml) | [organizr.app](https://organizr.app/) | 2022-11-29 |  Axel ROTTHIER "Drack0rr" |

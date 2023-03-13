@@ -329,6 +329,54 @@
         },
         {
             "type": 3,
+            "title": "HomeAssisant",
+            "name": "HomeAssisant",
+            "description": "Open source home automation that puts local control and privacy first.",
+            "note": "Website: <a href='https://www.home-assistant.io/' target='_blank' rel='noopener'>Home-assistant.io</a>",
+            "categories": [
+                "SelfHosted",
+                "Drackorr"
+            ],
+            "platform": "linux",
+            "logo": "https://design.home-assistant.io/images/logo.png",
+            "repository": {
+                "stackfile": "composes-files/homeassistant.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "homeassistant"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "HomeChart",
             "name": "HomeChart",
             "description": "Homechart is a productivity application to manage your household data--budgets, tasks, recipes, and more.",
