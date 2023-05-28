@@ -66,6 +66,69 @@
         },
         {
             "type": 3,
+            "title": "Bookstack",
+            "name": "Bookstack",
+            "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information",
+            "note": "Website: <a href='https://www.bookstackapp.com/' target='_blank' rel='noopener'>bookstackapp.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Wiki",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://avatars.githubusercontent.com/u/20912696?s=200&v=4",
+            "repository": {
+                "stackfile": "composes-files/bookstack.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "bookstack"
+                },
+                {
+                    "name": "DB_USER",
+                    "label": "Database user ",
+                    "description": "No spaces or points",
+                    "default": "bookstack_user"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                },
+                {
+                    "name": "DB_ROOT_PASSWORD",
+                    "label": "Database root password"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Calibre-Web",
             "name": "Calibre-Web",
             "description": "Web library",
