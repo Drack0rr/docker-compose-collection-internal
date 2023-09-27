@@ -2,7 +2,7 @@
 # Update: 2023-09-27
 
 #& type: 3
-#& title: RunDec ldap
+#& title: RunDeck ldap
 #& description: Automation of server administration via the creation of jobs or tasks
 #& note: Website: <a href='https://www.rundeck.com' target='_blank' rel='noopener'>Rundeck.com</a>
 #& categories: SelfHosted, Drack0rr
