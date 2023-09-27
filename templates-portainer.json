@@ -643,6 +643,144 @@
         },
         {
             "type": 3,
+            "title": "RunDeck",
+            "name": "RunDeck",
+            "description": "Automation of server administration via the creation of jobs or tasks",
+            "note": "Website: <a href='https://www.rundeck.com' target='_blank' rel='noopener'>Rundeck.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.icon-icons.com/icons2/2699/PNG/512/rundeck_logo_icon_170768.png",
+            "repository": {
+                "stackfile": "composes-files/rundeck-ldap.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "rundeck"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "DB_USER",
+                    "label": "Database user ",
+                    "description": "No spaces or points",
+                    "default": "rundeck"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                },
+                {
+                    "name": "IP_LDAP",
+                    "label": "Ip for server LDAP"
+                },
+                {
+                    "name": "LDAP_USER_BIND",
+                    "label": "ldap user for AD synchronization",
+                    "description": "Example: cn=admin,dc=rdtest,dc=com"
+                },
+                {
+                    "name": "LDAP_PASSWORD_BIND",
+                    "label": "ldap password for AD synchronization",
+                    "description": "Example: AdminPass123"
+                },
+                {
+                    "name": "LDAP_USERBASE_BIND",
+                    "label": "(Example: ou=users,dc=rdtest,dc=com)"
+                },
+                {
+                    "name": "LDAP_ROLEBASE_BIND",
+                    "label": "(Example: ou=roles,dc=rdtest,dc=com)"
+                }
+            ]
+        },
+        {
+            "type": 3,
+            "title": "RunDeck",
+            "name": "RunDeck",
+            "description": "Automation of server administration via the creation of jobs or tasks",
+            "note": "Website: <a href='https://www.rundeck.com' target='_blank' rel='noopener'>Rundeck.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://cdn.icon-icons.com/icons2/2699/PNG/512/rundeck_logo_icon_170768.png",
+            "repository": {
+                "stackfile": "composes-files/rundeck.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "rundeck"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "DB_USER",
+                    "label": "Database user ",
+                    "description": "No spaces or points",
+                    "default": "rundeck"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Vaultwarden",
             "name": "Vaultwarden",
             "description": "Password manager",
