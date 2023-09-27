@@ -1,0 +1,82 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-09-27
+
+#& type: 3
+#& title: RunDeck
+#& description: Automation of server administration via the creation of jobs or tasks
+#& note: Website: <a href='https://www.rundeck.com' target='_blank' rel='noopener'>Rundeck.com</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://cdn.icon-icons.com/icons2/2699/PNG/512/rundeck_logo_icon_170768.png
+
+#% SERVICE: Name of the service (No spaces or points) [rundeck]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% DB_USER: Database user (No spaces or points) [rundeck]
+#% DB_PASSWORD: Database user password
+
+version: '3.9'
+services:
+
+  rundeck:
+    image: rundeck/rundeck:4.16.0
+    restart: always
+    container_name: $SERVICE
+    depends_on:
+      - rundeck-db
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=$TIME_ZONE
+      - RUNDECK_GRAILS_URL=https://$URL
+      - RUNDECK_SERVER_FORWARDED=true #True if traefik
+      - RUNDECK_DATABASE_DRIVER=org.postgresql.Driver
+      - RUNDECK_DATABASE_USERNAME=$DB_USER
+      - RUNDECK_DATABASE_PASSWORD=$DB_PASSWORD
+      - RUNDECK_DATABASE_URL=jdbc:postgresql://$SERVICE-db/$DB_USER
+    #volumes:
+      #- $DATA_LOCATION/$SERVICE/config:/home/rundeck
+      #- $DATA_LOCATION/$SERVICE/server/data:/home/rundeck/server/data
+    networks:
+      - default
+    healthcheck:
+      test: curl --fail http://localhost:4440 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=4440"
+      - "traefik.docker.network=$NETWORK"
+
+  rundeck-db:
+    image: postgres:15
+    container_name: $SERVICE-db
+    volumes:
+      - $DATA_LOCATION/$SERVICE/db:/var/lib/postgresql
+    environment:
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASSWORD
+      POSTGRES_DB: rundeck
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $DB_USER"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
+
+
+networks:
+  default:
+    name: $NETWORK
+    external: true
