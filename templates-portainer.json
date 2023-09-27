@@ -643,8 +643,8 @@
         },
         {
             "type": 3,
-            "title": "RunDeck",
-            "name": "RunDeck",
+            "title": "RunDec ldap",
+            "name": "RunDec ldap",
             "description": "Automation of server administration via the creation of jobs or tasks",
             "note": "Website: <a href='https://www.rundeck.com' target='_blank' rel='noopener'>Rundeck.com</a>",
             "categories": [
