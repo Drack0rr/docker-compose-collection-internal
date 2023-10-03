@@ -34,7 +34,7 @@ services:
       - CORS_ORIGIN_ALLOW_ALL=True
       - DB_HOST=postgres
       - DB_NAME=netbox
-      - DB_PASSWORD=J5brHrAXFLQSif0K
+      - DB_PASSWORD=$DB_PASSWORD
       - DB_USER=$DB_USER
       - EMAIL_FROM=netbox@bar.com
       - EMAIL_PASSWORD=
