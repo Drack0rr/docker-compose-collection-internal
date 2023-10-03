@@ -671,6 +671,58 @@
         },
         {
             "type": 3,
+            "title": "PhpIPAM",
+            "name": "PhpIPAM",
+            "description": " Application for provide light, modern and useful IP address management",
+            "note": "Website: <a href='https://phpipam.net/' target='_blank' rel='noopener'>Phpipam.net</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://phpipam.net/css/images/phpipam_logo_small@2x.png",
+            "repository": {
+                "stackfile": "composes-files/phpipam.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "phpipam"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Pigvin Share",
             "name": "Pigvin Share",
             "description": "Pingvin Share is self-hosted file sharing platform and an alternative for WeTransfer.",

@@ -31,7 +31,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_17-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_18-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
@@ -47,6 +47,7 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 | ✅ | <img src="https://www.kavitareader.com/img/logo.png" alt="kavita" width="20"/> [kavita](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/kavita.yml) | [Github.com](https://github.com/Kareadita/Kavita) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://demo.netbox.dev/static/netbox_logo.svg" alt="netbox" width="20"/> [netbox](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/netbox.yml) | [Github.com](https://github.com/netbox-community/netbox-docker) | 2023-10-03 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/organizr.png" alt="organizr" width="20"/> [organizr](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/organizr.yml) | [organizr.app](https://organizr.app/) | 2022-11-29 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://phpipam.net/css/images/phpipam_logo_small@2x.png" alt="phpipam" width="20"/> [phpipam](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/phpipam.yml) | [Phpipam.net](https://phpipam.net/) | 2023-10-03 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://user-images.githubusercontent.com/58886915/166198400-c2134044-1198-4647-a8b6-da9c4a204c68.svg" alt="pingvin-share" width="20"/> [pingvin-share](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/pingvin-share.yml) | [Github.com](https://github.com/stonith404/pingvin-share) | 2022-12-08 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/rundeck_logo_icon_170768.png" alt="rundeck-ldap" width="20"/> [rundeck-ldap](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/rundeck-ldap.yml) | [Rundeck.com](https://www.rundeck.com) | 2023-09-27 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://cdn.icon-icons.com/icons2/2699/PNG/512/rundeck_logo_icon_170768.png" alt="rundeck" width="20"/> [rundeck](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/rundeck.yml) | [Rundeck.com](https://www.rundeck.com) | 2023-09-27 |  Axel ROTTHIER "Drack0rr" |
