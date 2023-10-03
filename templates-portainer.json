@@ -551,6 +551,77 @@
         },
         {
             "type": 3,
+            "title": "Netbox",
+            "name": "Netbox",
+            "description": "NetBox is the leading solution for modeling and documenting modern networks",
+            "note": "Website: <a href='https://github.com/netbox-community/netbox-docker' target='_blank' rel='noopener'>Github.com</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://demo.netbox.dev/static/netbox_logo.svg",
+            "repository": {
+                "stackfile": "composes-files/netbox.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "netbox"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                },
+                {
+                    "name": "DB_USER",
+                    "label": "Database user ",
+                    "description": "No spaces or points",
+                    "default": "netbox"
+                },
+                {
+                    "name": "DB_PASSWORD",
+                    "label": "Database user password"
+                },
+                {
+                    "name": "REDIS_CACHE_PASSWORD",
+                    "label": "Redis cache password"
+                },
+                {
+                    "name": "REDIS_PASSWORD",
+                    "label": " Redis password"
+                },
+                {
+                    "name": "SECRET_KEY",
+                    "label": "Secret Key",
+                    "description": "Generation : docker-compose run netbox python3 /opt/netbox/netbox/generate_secret_key.py"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Organizr",
             "name": "Organizr",
             "description": "Dashboard for your media server.",
