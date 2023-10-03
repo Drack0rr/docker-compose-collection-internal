@@ -87,7 +87,8 @@ services:
       - "traefik.docker.network=$NETWORK"
       
   netbox-worker:
-    <<: *netbox
+    image: netboxcommunity/netbox:latest
+    container_name: $SERVICE-worker
     depends_on:
       netbox:
         condition: service_healthy
@@ -100,8 +101,14 @@ services:
       timeout: 3s
       interval: 15s
       test: "ps -aux | grep -v grep | grep -q rqworker || exit 1"
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
+      
   netbox-housekeeping:
-    <<: *netbox
+    image: netboxcommunity/netbox:latest
+    container_name: $SERVICE-housekeeping
     depends_on:
       netbox:
         condition: service_healthy
@@ -112,6 +119,10 @@ services:
       timeout: 3s
       interval: 15s
       test: "ps -aux | grep -v grep | grep -q housekeeping || exit 1"
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
 
   # postgres
   postgres:
