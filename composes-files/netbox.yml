@@ -1,0 +1,173 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-10-03
+
+#& type: 3
+#& title: Netbox
+#& description: NetBox is the leading solution for modeling and documenting modern networks
+#& note: Website: <a href='https://github.com/netbox-community/netbox-docker' target='_blank' rel='noopener'>Github.com</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://demo.netbox.dev/static/netbox_logo.svg
+
+#% SERVICE: Name of the service (No spaces or points) [netbox]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% DB_USER: Database user (No spaces or points) [netbox]
+#% DB_PASSWORD: Database user password
+#% REDIS_CACHE_PASSWORD: Redis cache password
+#% REDIS_PASSWORD:  Redis password
+#% SECRET_KEY: Secret Key (Generation : docker-compose run netbox python3 /opt/netbox/netbox/generate_secret_key.py)
+
+version: '3.8'
+
+services:
+  netbox:
+    image: netboxcommunity/netbox:latest
+    container_name: $SERVICE
+    depends_on:
+      - postgres
+      - redis
+      - redis-cache
+    environment:
+      - CORS_ORIGIN_ALLOW_ALL=True
+      - TZ=$TIME_ZONE
+      - DB_HOST=postgres
+      - DB_NAME=netbox
+      - DB_PASSWORD=$DB_PASSWORD
+      - DB_USER=$DB_USER
+      - EMAIL_FROM=netbox@bar.com
+      - EMAIL_PASSWORD=
+      - EMAIL_PORT=25
+      - EMAIL_SERVER=localhost
+      - EMAIL_SSL_CERTFILE=
+      - EMAIL_SSL_KEYFILE=
+      - EMAIL_TIMEOUT=5
+      - EMAIL_USERNAME=netbox # EMAIL_USE_SSL and EMAIL_USE_TLS are mutually exclusive, i.e. they can't both be `true`!
+      - EMAIL_USE_SSL=false
+      - EMAIL_USE_TLS=false
+      - GRAPHQL_ENABLED=true
+      - HOUSEKEEPING_INTERVAL=86400
+      - MEDIA_ROOT=/opt/netbox/netbox/media
+      - METRICS_ENABLED=false
+      - REDIS_CACHE_DATABASE=1
+      - REDIS_CACHE_HOST=redis-cache
+      - REDIS_CACHE_INSECURE_SKIP_TLS_VERIFY=false
+      - REDIS_CACHE_PASSWORD=$REDIS_CACHE_PASSWORD
+      - REDIS_CACHE_SSL=false
+      - REDIS_DATABASE=0
+      - REDIS_HOST=redis
+      - REDIS_INSECURE_SKIP_TLS_VERIFY=false
+      - REDIS_PASSWORD=$REDIS_PASSWORD
+      - REDIS_SSL=false
+      - RELEASE_CHECK_URL=https://api.github.com/repos/netbox-community/netbox/releases
+      - SECRET_KEY=$SECRET_KEY
+      - SKIP_SUPERUSER=true
+      - WEBHOOKS_ENABLED=true
+    user: 'unit:root'
+    healthcheck:
+      start_period: 60s
+      timeout: 3s
+      interval: 15s
+      test: "curl -f http://localhost:8080/api/ || exit 1"
+    volumes:
+    - $DATA_LOCATION/$SERVICE/web/config:/etc/netbox/config:z,ro
+    - $DATA_LOCATION/$SERVICE/web/media:/opt/netbox/netbox/media:rw
+    - $DATA_LOCATION/$SERVICE/web/reports:/opt/netbox/netbox/reports:rw
+    - $DATA_LOCATION/$SERVICE/web/scripts:/opt/netbox/netbox/scripts:rw
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8080"
+      - "traefik.docker.network=$NETWORK"
+      
+  netbox-worker:
+    <<: *netbox
+    depends_on:
+      netbox:
+        condition: service_healthy
+    command:
+    - /opt/netbox/venv/bin/python
+    - /opt/netbox/netbox/manage.py
+    - rqworker
+    healthcheck:
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      test: "ps -aux | grep -v grep | grep -q rqworker || exit 1"
+  netbox-housekeeping:
+    <<: *netbox
+    depends_on:
+      netbox:
+        condition: service_healthy
+    command:
+    - /opt/netbox/housekeeping.sh
+    healthcheck:
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      test: "ps -aux | grep -v grep | grep -q housekeeping || exit 1"
+
+  # postgres
+  postgres:
+    image: postgres:15
+    container_name: $SERVICE-db
+    volumes:
+      - $DATA_LOCATION/$SERVICE/db:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=netbox
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $DB_USER"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
+
+  # redis
+  redis:
+    image: docker.io/redis:7-alpine
+    container_name: $SERVICE-redis
+    command:
+    - sh
+    - -c # this is to evaluate the $REDIS_PASSWORD from the env
+    - redis-server --appendonly yes --requirepass $REDIS_PASSWORD ## $$ because of docker-compose
+    environment:
+      - REDIS_PASSWORD=$REDIS_PASSWORD
+    volumes:
+      - $DATA_LOCATION/$SERVICE/redis/data:/data
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
+      
+  redis-cache:
+    image: docker.io/redis:7-alpine
+    command:
+    - sh
+    - -c # this is to evaluate the $REDIS_PASSWORD from the env
+    - redis-server --requirepass $REDIS_PASSWORD ## $$ because of docker-compose
+    environment:
+      - REDIS_PASSWORD=$REDIS_CACHE_PASSWORD
+    volumes:
+      - $DATA_LOCATION/$SERVICE/redis-cache/data:/data
+    labels:
+      - "autoupdate=monitor" # https://github.com/Drack0rr/container-updater
+    networks:
+      - default
+
+networks:
+  default:
+    name: $NETWORK
+    external: true
