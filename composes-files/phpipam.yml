@@ -1,0 +1,74 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-10-03
+
+#& type: 3
+#& title: PhpIPAM
+#& description:  Application for provide light, modern and useful IP address management
+#& note: Website: <a href='https://phpipam.net/' target='_blank' rel='noopener'>Phpipam.net</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://phpipam.net/css/images/phpipam_logo_small@2x.png
+
+#% SERVICE: Name of the service (No spaces or points) [phpipam]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+#% DB_PASSWORD: Database user password
+
+
+version: '3'
+
+services:
+  phpipam-web:
+    image: phpipam/phpipam-www:latest
+    container_name: $SERVICE-web
+    environment:
+      - TZ=$TIME_ZONE
+      - IPAM_DATABASE_HOST=mariadb
+      - IPAM_DATABASE_PASS=$DB_PASSWORD
+      - IPAM_DATABASE_WEBHOST=%
+    restart: always
+    volumes:
+      - $DATA_LOCATION/$SERVICE/logo:/phpipam/css/images/logo
+      - $DATA_LOCATION/$SERVICE/ca:/usr/local/share/ca-certificates:ro
+    depends_on:
+      - mariadb
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+
+  phpipam-cron:
+    image: phpipam/phpipam-cron:latest
+    container_name: $SERVICE-cron
+    environment:
+      - TZ=$TIME_ZONE
+      - IPAM_DATABASE_HOST=mariadb
+      - IPAM_DATABASE_PASS=$DB_PASSWORD
+      - SCAN_INTERVAL=1h
+    restart: always
+    volumes:
+      - $DATA_LOCATION/$SERVICE/ca:/usr/local/share/ca-certificates:ro
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:latest
+    container_name: $SERVICE-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_PASSWORD
+    restart: always
+    volumes:
+      - $DATA_LOCATION/$SERVICE/db:/var/lib/mysql
+
+networks:
+  default:
+    name: $NETWORK
+    external: true
