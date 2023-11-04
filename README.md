@@ -31,11 +31,12 @@ You can deploye a compatible Docker environment with Portainer and Traefik with:
 
 
 ## List of services availables:
-<img src="https://img.shields.io/badge/Avaibles:_18-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
+<img src="https://img.shields.io/badge/Avaibles:_19-%2354B848.svg?style=for-the-badge&logo=cachet&logoColor=white">
 
 | Status | Service | Website | Update | Maintainer |
 |:--:|--|--|--|--|
 | ✅ | <img src="https://github.com/Supernova3339/anonupload/raw/main/favicon.png" alt="anonfiles" width="20"/> [anonfiles](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/anonfiles.yml) | [Github.com](https://github.com/Supernova3339/anonupload) | 2023-01-03 |  Axel ROTTHIER "Drack0rr" |
+| ✅ | <img src="https://www.audiobookshelf.org/Logo.png" alt="audiobookshelf" width="20"/> [audiobookshelf](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/audiobookshelf.yml) | [Audiobookshelf.org](https://www.audiobookshelf.org/) | 2023-11-04 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://avatars.githubusercontent.com/u/20912696?s=200&v=4" alt="bookstack" width="20"/> [bookstack](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/bookstack.yml) | [bookstackapp.com](https://www.bookstackapp.com/) | 2023-05-28 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://developer.asustor.com/uploadIcons/0020_999_1573465183_calibre-web_256.png" alt="calibre-web" width="20"/> [calibre-web](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/calibre-web.yml) | [Github.com](https://github.com/janeczku/calibre-web) | 2022-12-05 |  Axel ROTTHIER "Drack0rr" |
 | ✅ | <img src="https://img.papamica.com/logo/dashy.png" alt="dashy" width="20"/> [dashy](https://github.com/Drack0rr/docker-compose-collection-internal/tree/master/composes-files/dashy.yml) | [Dashy.to](https://dashy.to/) | 2022-11-28 |  Axel ROTTHIER "Drack0rr" |

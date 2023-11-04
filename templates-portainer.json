@@ -66,6 +66,54 @@
         },
         {
             "type": 3,
+            "title": "Audiobookshelf",
+            "name": "Audiobookshelf",
+            "description": " Audiobookshelf is a self-hosted audiobook and podcast server.",
+            "note": "Website: <a href='https://www.audiobookshelf.org/' target='_blank' rel='noopener'>Audiobookshelf.org</a>",
+            "categories": [
+                "SelfHosted",
+                "Drack0rr"
+            ],
+            "platform": "linux",
+            "logo": "https://www.audiobookshelf.org/Logo.png",
+            "repository": {
+                "stackfile": "composes-files/audiobookshelf.yml",
+                "url": "https://github.com/Drack0rr/docker-compose-collection-internal"
+            },
+            "env": [
+                {
+                    "name": "SERVICE",
+                    "label": "Name of the service ",
+                    "description": "No spaces or points",
+                    "default": "audiobookshelf"
+                },
+                {
+                    "name": "DATA_LOCATION",
+                    "label": "Data localization ",
+                    "description": "Example: /apps/service",
+                    "default": "/apps"
+                },
+                {
+                    "name": "URL",
+                    "label": "Service URL",
+                    "description": "Example: service.rotthier.net or service.com"
+                },
+                {
+                    "name": "NETWORK",
+                    "label": "Your Traefik network ",
+                    "description": "Example: proxy",
+                    "default": "proxy"
+                },
+                {
+                    "name": "TIME_ZONE",
+                    "label": "Time zone ",
+                    "description": "Example : Europe/Paris",
+                    "default": "Europe/Paris"
+                }
+            ]
+        },
+        {
+            "type": 3,
             "title": "Bookstack",
             "name": "Bookstack",
             "description": "BookStack is a simple, self-hosted, easy-to-use platform for organising and storing information",
