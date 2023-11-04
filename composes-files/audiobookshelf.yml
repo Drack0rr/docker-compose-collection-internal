@@ -1,0 +1,47 @@
+# Maintainer: Axel ROTTHIER "Drack0rr"
+# Update: 2023-11-04
+
+#& type: 3
+#& title: Audiobookshelf
+#& description:  Audiobookshelf is a self-hosted audiobook and podcast server.
+#& note: Website: <a href='https://www.audiobookshelf.org/' target='_blank' rel='noopener'>Audiobookshelf.org</a>
+#& categories: SelfHosted, Drack0rr
+#& platform: linux
+#& logo: https://www.audiobookshelf.org/Logo.png
+
+#% SERVICE: Name of the service (No spaces or points) [audiobookshelf]
+#% DATA_LOCATION: Data localization (Example: /apps/service) [/apps]
+#% URL: Service URL (Example: service.rotthier.net or service.com)
+#% NETWORK: Your Traefik network (Example: proxy) [proxy]
+#% TIME_ZONE: Time zone (Example : Europe/Paris) [Europe/Paris]
+
+
+version: '3.8'
+
+services:
+  audiobookshelf:
+    image: advplyr/audiobookshelf:latest
+    container_name: $SERVICE
+    environment:
+      - TZ=$TIME_ZONE
+    restart: always
+    volumes:
+      - $DATA_LOCATION/$SERVICE/audiobooks:/audiobooks
+      - $DATA_LOCATION/$SERVICE/podcasts:/podcasts
+      - $DATA_LOCATION/$SERVICE/config:/config
+      - $DATA_LOCATION/$SERVICE/metadata:/metadata
+    networks:
+      - default
+    labels:
+      - "autoupdate=true" # https://github.com/Drack0rr/container-updater
+      - "autoupdate.webhook="
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$URL`)"
+      - "traefik.http.routers.$SERVICE.tls.certresolver=http"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK"
+
+networks:
+  default:
+    name: $NETWORK
+    external: true
